@@ -1,0 +1,25 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: { typeName: 'Item', typeNamePlural: 'Items', title: { type: #STANDARD, value: 'SalesOrderItem' } }
+annotate view ZSD_PICK_C_ITM with 
+{
+  @UI.lineItem: [{ position: 10 }]
+  SalesOrderItem;
+
+  @UI.lineItem: [{ position: 20 }]
+  ItemDescription;
+
+  @UI.lineItem: [{ position: 30 }]
+  OrderQuantity;
+
+  @UI.lineItem: [{ position: 40 }]
+  SizeDescription;
+
+  @UI.lineItem: [{ position: 50 }]
+  GradeDescription;
+
+  @UI.lineItem: [{ position: 60 }]
+  StorageLocation;
+
+  @UI.lineItem: [{ position: 70 }]
+  Batch;
+}

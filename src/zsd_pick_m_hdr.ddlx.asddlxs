@@ -1,0 +1,164 @@
+//@Metadata.layer: #CORE
+//@UI.headerInfo: {
+//    typeName: 'Picklist',
+//    typeNamePlural: 'Picklists',
+//    title: { type: #STANDARD, value: 'SalesOrder' },
+//    description: { type: #STANDARD, value: 'CustomerName' }
+//}
+//annotate view ZSD_PICK_C_HDR with 
+//{
+//  @UI.facet: [
+//    {
+//      id: 'GeneralInfo',
+//      type: #IDENTIFICATION_REFERENCE,
+//      label: 'General Information',
+//      position: 10
+//    },
+//    {
+//      id: 'Items',
+//      type: #LINEITEM_REFERENCE,
+//      targetElement: '_Item',
+//      label: 'Picklist Items',
+//      position: 20
+//    }
+//  ]
+//
+//  -- 1. Sales Order (Filter & Column)
+//  @UI.selectionField: [{ position: 10 }]
+//  @UI.lineItem: [{ position: 10, label: 'Sales Order' }]
+//  @UI.identification: [{ position: 10, label: 'Sales Order' }]
+//  SalesOrder;
+//
+//  -- 2. Sold-to Party (Filter & Column)
+//  @UI.selectionField: [{ position: 20 }]
+//  @UI.lineItem: [{ position: 20, label: 'Sold-to Party' }]
+//  @UI.identification: [{ position: 20, label: 'Sold-to Party' }]
+//  SoldToParty;
+//
+//  -- 3. Customer Name
+//  @UI.lineItem: [{ position: 30, label: 'Customer Name' }]
+//  @UI.identification: [{ position: 30, label: 'Customer Name' }]
+//  CustomerName;
+//
+//  -- 4. Creation Date (Filter Only)
+//  @Consumption.filter: { selectionType: #INTERVAL, multipleSelections: false }
+//  @UI.selectionField: [{ position: 40 }]
+//  CreationDate;
+//
+//  -- 5. Document Date
+//  @UI.lineItem: [{ position: 50, label: 'Document Date' }]
+//  @UI.identification: [{ position: 50, label: 'Document Date' }]
+//  DocumentDate;
+//  
+//  -- 6. Statuses
+//  @UI.lineItem: [{ position: 60, label: 'Order Status', criticalityRepresentation: #WITHOUT_ICON }]
+//  @UI.identification: [{ position: 60, label: 'Order Status' }]
+//  SalesOrderStatus;
+//
+//  @UI.identification: [{ position: 70, label: 'Approval Status' }]
+//  ApprovalStatus;
+//
+//  @UI.identification: [{ position: 80, label: 'Delivery Block' }]
+//  DeliveryBlock;
+//  
+//  -- Ship-to Party (Filter Only per FSD)
+//  @UI.selectionField: [{ position: 50 }]
+//  @UI.identification: [{ position: 25, label: 'Ship-to Party' }]
+//  ShipToParty;
+//  
+//  @UI.identification: [{ position: 90, label: 'Customer Ref.' }]
+//  CustomerReference;
+//}
+
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Picklist',
+    typeNamePlural: 'Picklists',
+    title: { type: #STANDARD, value: 'SalesOrder' },
+    description: { type: #STANDARD, value: 'CustomerName' }
+}
+annotate view ZSD_PICK_C_HDR with 
+{
+  @UI.facet: [
+    {
+      id: 'GeneralInfo',
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'General Information',
+      position: 10
+    },
+    {
+      id: 'Items',
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_Item',
+      label: 'Picklist Items',
+      position: 20
+    }
+  ]
+
+  -- 1. Sales Order (Filter & Column)
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [{ position: 10, label: 'Sales Order' }]
+  @UI.identification: [{ position: 10, label: 'Sales Order' }]
+  SalesOrder;
+
+  -- 2. Sold-to Party (Filter & Column)
+  @UI.selectionField: [{ position: 20 }]
+  @UI.lineItem: [{ position: 20, label: 'Sold-to Party' }]
+  @UI.identification: [{ position: 20, label: 'Sold-to Party' }]
+  SoldToParty;
+
+  -- 3. Customer Name & Address
+  @UI.lineItem: [{ position: 30, label: 'Customer Name' }]
+  @UI.identification: [{ position: 30, label: 'Customer Name' }]
+  CustomerName;
+  
+  @UI.identification: [{ position: 31, label: 'Customer Address' }]
+  CustomerAddress;
+  
+  @UI.identification: [{ position: 32, label: 'Sold-To Contact' }]
+  SoldToContact;
+
+  -- 4. Creation Date (Filter Only)
+  
+  @UI.selectionField: [{ position: 40 }]
+  @Consumption.filter.selectionType: #INTERVAL
+  CreationDate;
+
+  -- 5. Document Date
+  @UI.lineItem: [{ position: 50, label: 'Document Date' }]
+  @UI.identification: [{ position: 50, label: 'Document Date' }]
+  @Consumption.filter.selectionType: #INTERVAL
+  DocumentDate;
+  
+  -- 6. Statuses
+  @UI.lineItem: [{ position: 60, label: 'Order Status', criticalityRepresentation: #WITHOUT_ICON }]
+  @UI.identification: [{ position: 60, label: 'Order Status' }]
+  SalesOrderStatus;
+
+  @UI.identification: [{ position: 70, label: 'Approval Status' }]
+  ApprovalStatus;
+
+  @UI.identification: [{ position: 80, label: 'Delivery Block' }]
+  DeliveryBlock;
+  
+  @UI.identification: [{ position: 81, label: 'Credit Status' }]
+  Credit;
+  
+  -- 7. Ship-to Party 
+  @UI.selectionField: [{ position: 50 }]
+  @UI.identification: [{ position: 25, label: 'Ship-to Party' }]
+  ShipToParty;
+  
+  @UI.identification: [{ position: 26, label: 'Ship-to Name' }]
+  ShipToName;
+  
+  @UI.identification: [{ position: 27, label: 'Ship-to Address' }]
+  ShipToAddress;
+  
+  @UI.identification: [{ position: 28, label: 'Ship-to Contact' }]
+  ShiptoContact;
+  
+  -- 8. Customer Ref
+  @UI.identification: [{ position: 90, label: 'Customer Ref.' }]
+  CustomerReference;
+}

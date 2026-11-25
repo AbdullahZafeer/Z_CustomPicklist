@@ -1,0 +1,16 @@
+projection;
+strict ( 2 );
+
+define behavior for ZSD_PICK_C_HDR alias Header
+{
+
+  use action downloadPicklist;
+
+  use association _Item;
+}
+
+define behavior for ZSD_PICK_C_ITM alias Item
+{
+
+  use association _Header;
+}

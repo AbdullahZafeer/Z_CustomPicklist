@@ -1,0 +1,5 @@
+@EndUserText.label: 'FDP Service for Picklist'
+define service ZSD_PICK_FDP_SRV {
+  expose ZSD_PICK_FDP_HDR as PicklistHeader;
+  expose ZSD_PICK_FDP_ITM as PicklistItem;
+}

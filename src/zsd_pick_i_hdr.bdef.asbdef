@@ -1,0 +1,22 @@
+unmanaged implementation in class zbp_sd_pick_hdr unique;
+strict ( 2 );
+
+define behavior for ZSD_PICK_I_HDR alias Header
+lock master
+authorization master ( global )
+{
+  field ( readonly ) SalesOrder;
+
+  // Add ( features : instance ) right here:
+  action ( features : instance ) downloadPicklist result [1] ZSD_PICK_A_PDF_OUT;
+
+  association _Item;
+}
+
+define behavior for ZSD_PICK_I_ITM alias Item
+lock dependent by _Header
+authorization dependent by _Header
+{
+  field ( readonly ) SalesOrder, SalesOrderItem;
+  association _Header;
+}
